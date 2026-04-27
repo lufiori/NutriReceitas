@@ -17,7 +17,7 @@ const db = firebase.firestore();
 const lista = document.getElementById("lista");
 
 // BUSCAR RECEITAS DO BANCO
-db.collection("receitas").get()
+db.collection("Receitas").get()
   .then((snapshot) => {
     snapshot.forEach((doc) => {
       const r = doc.data();
