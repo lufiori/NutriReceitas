@@ -41,8 +41,17 @@ db.collection("Receitas").get()
 
 // FUNÇÃO PARA ABRIR DETALHES
 function abrir(r) {
-  document.getElementById("lista").classList.add("hidden");
-  document.getElementById("detalhes").classList.remove("hidden");
+  const lista = document.getElementById("lista");
+  const detalhes = document.getElementById("detalhes");
+
+  // garante que os elementos existem
+  if (!lista || !detalhes) {
+    console.error("Elementos não encontrados");
+    return;
+  }
+
+  lista.style.display = "none";
+  detalhes.style.display = "block";
 
   document.getElementById("titulo").innerText = r.nome;
 
@@ -58,6 +67,6 @@ function abrir(r) {
 
 // VOLTAR PARA LISTA
 function voltar() {
-  document.getElementById("lista").classList.remove("hidden");
-  document.getElementById("detalhes").classList.add("hidden");
+  document.getElementById("lista").style.display = "block";
+  document.getElementById("detalhes").style.display = "none";
 }
